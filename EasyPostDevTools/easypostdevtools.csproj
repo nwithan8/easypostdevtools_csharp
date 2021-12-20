@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+        <ProjectGuid>{92BEDBA3-7F04-4132-A0CA-81EF301CA238}</ProjectGuid>
+        <OutputType>Library</OutputType>
+        <AppDesignerFolder>Properties</AppDesignerFolder>
+        <RootNamespace>EasyPostDevTools</RootNamespace>
+        <AssemblyName>easypostdevtools</AssemblyName>
+        <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+        <FileAlignment>512</FileAlignment>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <Optimize>false</Optimize>
+        <OutputPath>bin\Debug\</OutputPath>
+        <DefineConstants>DEBUG;TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugType>pdbonly</DebugType>
+        <Optimize>true</Optimize>
+        <OutputPath>bin\Release\</OutputPath>
+        <DefineConstants>TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="System" />
+        <Reference Include="System.Core" />
+        <Reference Include="System.Data" />
+        <Reference Include="System.Xml" />
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Include="EasyPostDevTools.cs" />
+        <Compile Include="Properties\AssemblyInfo.cs" />
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="models" />
+      <Folder Include="utils" />
+    </ItemGroup>
+    <ItemGroup>
+      <Content Include="json\addresses\australia\vt-addresses.json" />
+      <Content Include="json\addresses\australia\vt-addresses.min.json" />
+      <Content Include="json\addresses\canada\bc-addresses.json" />
+      <Content Include="json\addresses\canada\bc-addresses.min.json" />
+      <Content Include="json\addresses\china\bj-addresses.json" />
+      <Content Include="json\addresses\china\bj-addresses.min.json" />
+      <Content Include="json\addresses\china\hk-addresses.json" />
+      <Content Include="json\addresses\china\hk-addresses.min.json" />
+      <Content Include="json\addresses\europe\de-addresses.json" />
+      <Content Include="json\addresses\europe\de-addresses.min.json" />
+      <Content Include="json\addresses\europe\es-addresses.json" />
+      <Content Include="json\addresses\europe\es-addresses.min.json" />
+      <Content Include="json\addresses\europe\uk-addresses.json" />
+      <Content Include="json\addresses\europe\uk-addresses.min.json" />
+      <Content Include="json\addresses\mexico\mx-addresses.json" />
+      <Content Include="json\addresses\mexico\mx-addresses.min.json" />
+      <Content Include="json\addresses\united-states\az-addresses.json" />
+      <Content Include="json\addresses\united-states\az-addresses.min.json" />
+      <Content Include="json\addresses\united-states\ca-addresses.json" />
+      <Content Include="json\addresses\united-states\ca-addresses.min.json" />
+      <Content Include="json\addresses\united-states\id-addresses.json" />
+      <Content Include="json\addresses\united-states\id-addresses.min.json" />
+      <Content Include="json\addresses\united-states\ks-addresses.json" />
+      <Content Include="json\addresses\united-states\ks-addresses.min.json" />
+      <Content Include="json\addresses\united-states\nv-addresses.json" />
+      <Content Include="json\addresses\united-states\nv-addresses.min.json" />
+      <Content Include="json\addresses\united-states\ny-addresses.json" />
+      <Content Include="json\addresses\united-states\ny-addresses.min.json" />
+      <Content Include="json\addresses\united-states\or-addresses.json" />
+      <Content Include="json\addresses\united-states\or-addresses.min.json" />
+      <Content Include="json\addresses\united-states\tx-addresses.json" />
+      <Content Include="json\addresses\united-states\tx-addresses.min.json" />
+      <Content Include="json\addresses\united-states\ut-addresses.json" />
+      <Content Include="json\addresses\united-states\ut-addresses.min.json" />
+      <Content Include="json\addresses\united-states\wa-addresses.json" />
+      <Content Include="json\addresses\united-states\wa-addresses.min.json" />
+      <Content Include="json\carriers.json" />
+      <Content Include="json\customs_info.json" />
+      <Content Include="json\customs_items.json" />
+      <Content Include="json\label_options.json" />
+      <Content Include="json\options.json" />
+      <Content Include="json\pickups.json" />
+      <Content Include="json\trackers.json" />
+    </ItemGroup>
+    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+    <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+         Other similar extension points exist, see Microsoft.Common.targets.
+    <Target Name="BeforeBuild">
+    </Target>
+    <Target Name="AfterBuild">
+    </Target>
+    -->
+
+</Project>
