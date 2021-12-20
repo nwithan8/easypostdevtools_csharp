@@ -9,7 +9,7 @@
         <AppDesignerFolder>Properties</AppDesignerFolder>
         <RootNamespace>EasyPostDevTools</RootNamespace>
         <AssemblyName>easypostdevtools</AssemblyName>
-        <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+        <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -32,63 +32,169 @@
         <WarningLevel>4</WarningLevel>
     </PropertyGroup>
     <ItemGroup>
+        <Reference Include="EasyPost, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3ac70bfed09f9fde">
+          <HintPath>..\packages\EasyPost-Official.2.7.0\lib\net45\EasyPost.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
+          <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="RestSharp, Version=106.4.2.0, Culture=neutral, PublicKeyToken=598062e77f915f75">
+          <HintPath>..\packages\RestSharp.106.4.2\lib\net452\RestSharp.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
         <Reference Include="System" />
         <Reference Include="System.Core" />
         <Reference Include="System.Data" />
+        <Reference Include="System.Web" />
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="Constants.cs" />
         <Compile Include="EasyPostDevTools.cs" />
+        <Compile Include="models\ExtendedEnum.cs" />
+        <Compile Include="models\Mapper.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="Test.cs" />
+        <Compile Include="utils\Dates.cs" />
+        <Compile Include="utils\DotEnv.cs" />
+        <Compile Include="utils\JSONReader.cs" />
+        <Compile Include="utils\Random.cs" />
     </ItemGroup>
     <ItemGroup>
-      <Folder Include="models" />
-      <Folder Include="utils" />
+      <Content Include="json\addresses\australia\vt-addresses.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="json\addresses\australia\vt-addresses.min.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="json\addresses\canada\bc-addresses.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="json\addresses\canada\bc-addresses.min.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="json\addresses\china\bj-addresses.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="json\addresses\china\bj-addresses.min.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="json\addresses\china\hk-addresses.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="json\addresses\china\hk-addresses.min.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="json\addresses\europe\de-addresses.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="json\addresses\europe\de-addresses.min.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="json\addresses\europe\es-addresses.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="json\addresses\europe\es-addresses.min.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="json\addresses\europe\uk-addresses.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="json\addresses\europe\uk-addresses.min.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="json\addresses\mexico\mx-addresses.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="json\addresses\mexico\mx-addresses.min.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="json\addresses\united-states\az-addresses.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="json\addresses\united-states\az-addresses.min.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="json\addresses\united-states\ca-addresses.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="json\addresses\united-states\ca-addresses.min.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="json\addresses\united-states\id-addresses.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="json\addresses\united-states\id-addresses.min.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="json\addresses\united-states\ks-addresses.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="json\addresses\united-states\ks-addresses.min.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="json\addresses\united-states\nv-addresses.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="json\addresses\united-states\nv-addresses.min.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="json\addresses\united-states\ny-addresses.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="json\addresses\united-states\ny-addresses.min.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="json\addresses\united-states\or-addresses.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="json\addresses\united-states\or-addresses.min.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="json\addresses\united-states\tx-addresses.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="json\addresses\united-states\tx-addresses.min.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="json\addresses\united-states\ut-addresses.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="json\addresses\united-states\ut-addresses.min.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="json\addresses\united-states\wa-addresses.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="json\addresses\united-states\wa-addresses.min.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="json\carriers.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="json\customs_info.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="json\customs_items.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="json\label_options.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="json\options.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="json\pickups.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="json\trackers.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
     </ItemGroup>
     <ItemGroup>
-      <Content Include="json\addresses\australia\vt-addresses.json" />
-      <Content Include="json\addresses\australia\vt-addresses.min.json" />
-      <Content Include="json\addresses\canada\bc-addresses.json" />
-      <Content Include="json\addresses\canada\bc-addresses.min.json" />
-      <Content Include="json\addresses\china\bj-addresses.json" />
-      <Content Include="json\addresses\china\bj-addresses.min.json" />
-      <Content Include="json\addresses\china\hk-addresses.json" />
-      <Content Include="json\addresses\china\hk-addresses.min.json" />
-      <Content Include="json\addresses\europe\de-addresses.json" />
-      <Content Include="json\addresses\europe\de-addresses.min.json" />
-      <Content Include="json\addresses\europe\es-addresses.json" />
-      <Content Include="json\addresses\europe\es-addresses.min.json" />
-      <Content Include="json\addresses\europe\uk-addresses.json" />
-      <Content Include="json\addresses\europe\uk-addresses.min.json" />
-      <Content Include="json\addresses\mexico\mx-addresses.json" />
-      <Content Include="json\addresses\mexico\mx-addresses.min.json" />
-      <Content Include="json\addresses\united-states\az-addresses.json" />
-      <Content Include="json\addresses\united-states\az-addresses.min.json" />
-      <Content Include="json\addresses\united-states\ca-addresses.json" />
-      <Content Include="json\addresses\united-states\ca-addresses.min.json" />
-      <Content Include="json\addresses\united-states\id-addresses.json" />
-      <Content Include="json\addresses\united-states\id-addresses.min.json" />
-      <Content Include="json\addresses\united-states\ks-addresses.json" />
-      <Content Include="json\addresses\united-states\ks-addresses.min.json" />
-      <Content Include="json\addresses\united-states\nv-addresses.json" />
-      <Content Include="json\addresses\united-states\nv-addresses.min.json" />
-      <Content Include="json\addresses\united-states\ny-addresses.json" />
-      <Content Include="json\addresses\united-states\ny-addresses.min.json" />
-      <Content Include="json\addresses\united-states\or-addresses.json" />
-      <Content Include="json\addresses\united-states\or-addresses.min.json" />
-      <Content Include="json\addresses\united-states\tx-addresses.json" />
-      <Content Include="json\addresses\united-states\tx-addresses.min.json" />
-      <Content Include="json\addresses\united-states\ut-addresses.json" />
-      <Content Include="json\addresses\united-states\ut-addresses.min.json" />
-      <Content Include="json\addresses\united-states\wa-addresses.json" />
-      <Content Include="json\addresses\united-states\wa-addresses.min.json" />
-      <Content Include="json\carriers.json" />
-      <Content Include="json\customs_info.json" />
-      <Content Include="json\customs_items.json" />
-      <Content Include="json\label_options.json" />
-      <Content Include="json\options.json" />
-      <Content Include="json\pickups.json" />
-      <Content Include="json\trackers.json" />
+      <None Include="packages.config" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
